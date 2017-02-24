@@ -8,7 +8,7 @@
 <!-- begin show all todos -->
 <section class="todo-list">
   <ul>
-    <li ng-repeat="todo in todosVm.remainingTodos()">
+    <li ng-repeat="todo in todosVm.completedTodos()">
       <input class="checkbox" type="checkbox" ng-model="todo.done" id="todo-{{$index}}">
       <label for="todo-{{$index}}" ng-class="{done: todo.done}">{{ todo.task }}</label>
       <button class="btn btn-delete" ng-click="todosVm.deleteTodo($index)">x</button>
