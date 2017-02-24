@@ -14,7 +14,11 @@
     .state('archive', {
       url: '/archive',
       templateUrl: 'archive.html'
-    });;
+    })
+    .state('about', {
+      url: '/about',
+      templateUrl: 'about.html'
+    });
 
     $urlRouterProvider.otherwise('/');
   }

@@ -7,6 +7,8 @@
 	function TodosController(){
 		var vm = this;
 
+    vm.about = "Created to let the user add, track, and view completed tasks.";
+
 		vm.todoList = [
 			{task: "build an awesome todo app", done: false},
 			{task: "get super good at Angular", done: false},
