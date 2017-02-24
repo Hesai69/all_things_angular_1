@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html data-ng-app="InfamousCriminalsApp">
+<head>
+  <title>Infamous Criminals</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-ng-controller="CriminalsController as crim">
+  <h1>Infamous Criminals</h1>
+
+  <div>
+    <ul id="criminals">
+      <li data-ng-repeat="criminal in crim.criminals">
+        <span class="status {{criminal.status}}">{{criminal.status}}</span>
+        <span class="name">{{criminal.name}}</span>
+        <span class="location">{{criminal.location}}</span>
+        <button class="delete" data-ng-click="crim.removeCriminal(criminal)">X</button>
+      </li>
+    </ul>
+  </div>
+
+  <form id="newCriminal" class="add-criminal" data-ng-submit="crim.addCriminal()">
+    <div>
+      <label for="new-criminal-name">Name: </label>
+      <input class="input" type="text" id="new-criminal-name" placeholder="Al Capone" data-ng-model="crim.newCriminal.name">
+    </div>
+    <div>
+      <label for="new-criminal-location">Location: </label>
+      <input class="input" type="text" id="new-criminal-location" placeholder="Chicago, Il" data-ng-model="crim.newCriminal.location">
+    </div>
+    <div>
+      <label for="new-criminal-status">Status: </label>
+      <select class="status" id="new-criminal-status" name="status" data-ng-model="crim.newCriminal.status" required="true" data-default-value="">
+        <option value="" selected>-- Please Select One --</option>
+        <option value="dead">DEAD</option>
+        <option value="alive">ALIVE</option>
+        <option value="unknown">UNKNOWN</option>
+      </select>
+    </div>
+    <div>
+      <input class="add-button" type="submit" value="Add Criminal">
+    </div>
+  </form>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="/app.js"></script>
+  <script src="/controllers/criminalsController.js"></script>
+</body>
+</html>

@@ -54,6 +54,13 @@ ul#criminals li button.delete:hover {
   border-color: grey;
   color: grey;
 }
+ul#criminals li span.name {
+  font-weight: bold;
+}
+ul#criminals li span.location {
+  font-style: italic;
+  color: rgba(0,0,0,.5);
+}
 
 span.status {
   font-size: 0.6rem;
