@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+</head>
+<body class="container" data-ng-controller="MainController as ctrl" style="background-color:{{ctrl.crazyColor}}">
+  <h1>Intro to AngularJS</h1>
+  {{3 + 4}}
+  {{ctrl.greeting}}
+  <br>
+  <label>Color: <input type="text" class="form-control" data-ng-model="ctrl.crazyColor"></label>
+
+  <div data-ng-show="ctrl.showNames">
+    Names:
+    <ul>
+      <li data-ng-repeat="name in ctrl.names">{{name | uppercase}}</li>
+    </ul>
+    Extra Names:
+    <ul>
+      <li data-ng-repeat="name in ctrl.extraNames">{{name | lowercase}}</li>
+    </ul>
+    <button class="btn btn-success" data-ng-click="ctrl.addName()">Add Name</button>
+  </div>
+  <br>
+  <button class="btn btn-info" data-ng-click="ctrl.showNames = !ctrl.showNames">Show/Hide Names</button>
+
+  <ul>
+    <li data-ng-repeat="gem in ctrl.gemsOfImagination" data-ng-hide="ctrl.gem.soldOut">
+      <p>Gem: {{gem.name}}
+      <br>Costs: {{gem.price | currency}}
+      <br>Desc: {{gem.desc}}</p>
+      <button data-ng-click="ctrl.addCart(gem)" data-ng-show="gem.canPurchase" class="btn btn-success">Add to CART</button>
+    </li>
+  </ul>
+
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
